@@ -15,9 +15,14 @@
  */
 
 buildscript {
-    ext.kotlin_version = '1.4.30'
-    ext.compose_version = '1.0.0-beta01'
-    ext.coroutines_version = '1.4.2'
+    ext {
+        kotlin_version = '1.4.30'
+        compose_version = '1.0.0-beta01'
+        coroutines_version = '1.4.2'
+        roomVersion = '2.2.6'
+        glideVersion = '4.11.0'
+        gsonVersion = '2.8.6'
+    }
 
     repositories {
         google()
