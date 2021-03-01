@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Pepper",
+    "species": "Labrador Retriever",
+    "sex": "male",
+    "age": "2 years",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg"
+  },
+  {
+    "name": "Ginger",
+    "species": "Papillon",
+    "sex": "female",
+    "age": "5 months",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/RileyPapillon.JPG"
+  },
+  {
+    "name": "Max",
+    "species": "Pitbull Terrier",
+    "sex": "male",
+    "age": "10 months",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/American_Pitbull_001.jpg/2560px-American_Pitbull_001.jpg"
+  },
+  {
+    "name": "Petal",
+    "species": "Pug",
+    "sex": "female",
+    "age": "3 years",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Fawn_pug_2.5year-old.JPG"
+  },
+  {
+    "name": "Sunny",
+    "species": "Poodle",
+    "sex": "male",
+    "age": "3 months",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/%EB%AF%B8%EB%8B%88%ED%91%B8%EB%93%A4%EC%9D%98_%EB%AA%A8%EC%8A%B5.jpg"
+  }
+]

@@ -80,6 +80,9 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling:$compose_version"
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0'
 
+    // worker
+    implementation "androidx.work:work-runtime-ktx:$rootProject.workVersion"
+
     // room
     kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"

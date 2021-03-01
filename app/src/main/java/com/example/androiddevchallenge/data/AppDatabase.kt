@@ -1,12 +1,15 @@
 package com.example.androiddevchallenge.data
 
 import android.content.Context
-import com.example.androiddevchallenge.data.Converters
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import androidx.sqlite.db.SupportSQLiteDatabase
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import com.example.androiddevchallenge.util.DATABASE_NAME
+import com.example.androiddevchallenge.worker.SeedDatabaseWorker
 
 
 @Database(entities = [Puppy::class], version = 1, exportSchema = false)
@@ -29,13 +32,13 @@ abstract class AppDatabase : RoomDatabase() {
         // https://medium.com/google-developers/7-pro-tips-for-room-fbadea4bfbd1#4785
         private fun buildDatabase(context: Context): AppDatabase {
             return Room.databaseBuilder(context, AppDatabase::class.java, DATABASE_NAME)
-                /*.addCallback(object : RoomDatabase.Callback() {
+                .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
                         val request = OneTimeWorkRequestBuilder<SeedDatabaseWorker>().build()
                         WorkManager.getInstance(context).enqueue(request)
                     }
-                })*/
+                })
                 .build()
         }
     }
