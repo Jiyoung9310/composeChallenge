@@ -12,4 +12,6 @@
     <string name="app_name">Adopt Puppy</string>
 
     <string name="detail_description">Description</string>
+    <string name="action_back" translatable="false">Navigate up</string>
+    <string name="action_share" translatable="false">Share</string>
 </resources>

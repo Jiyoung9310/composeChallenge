@@ -5,7 +5,6 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import com.example.androiddevchallenge.ui.DetailsScreen
 import com.example.androiddevchallenge.ui.theme.MyTheme
-import dev.chrisbanes.accompanist.insets.ProvideWindowInsets
 
 class DetailActivity : AppCompatActivity()  {
 
@@ -18,12 +17,10 @@ class DetailActivity : AppCompatActivity()  {
         (intent.extras?.get(INTENT_KEY_PUPPY_ID) as? Int)?.let { puppyId ->
             setContent {
                 MyTheme {
-                    ProvideWindowInsets {
-                        DetailsScreen(
-                            puppyId,
-                            onBackClick = { finish() }
-                        )
-                    }
+                    DetailsScreen(
+                        puppyId,
+                        onBackClick = { finish() }
+                    )
                 }
             }
         } ?: run { finish() }
