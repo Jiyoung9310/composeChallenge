@@ -3,6 +3,8 @@ package com.example.androiddevchallenge.util
 import android.content.Context
 import com.example.androiddevchallenge.data.AppDatabase
 import com.example.androiddevchallenge.data.PuppyRepository
+import com.example.androiddevchallenge.viewmodel.PuppyDetailViewModel
+import com.example.androiddevchallenge.viewmodel.PuppyDetailViewModelFactory
 import com.example.androiddevchallenge.viewmodel.PuppyListViewModelFactory
 
 object InjectorUtils {
@@ -14,5 +16,9 @@ object InjectorUtils {
 
     fun providePuppyListViewModelFactory(context: Context): PuppyListViewModelFactory {
         return PuppyListViewModelFactory(getPuppyRepository(context))
+    }
+
+    fun providePuppyDetailViewModelFactory(context: Context, id: Int): PuppyDetailViewModelFactory {
+        return PuppyDetailViewModelFactory(getPuppyRepository(context), id)
     }
 }
