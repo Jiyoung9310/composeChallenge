@@ -15,17 +15,27 @@
  */
 package com.example.androiddevchallenge
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.androiddevchallenge.DetailActivity.Companion.INTENT_KEY_PUPPY_ID
+import com.example.androiddevchallenge.ui.PuppyList
 import com.example.androiddevchallenge.ui.theme.MyTheme
 import com.example.androiddevchallenge.util.InjectorUtils
 import com.example.androiddevchallenge.viewmodel.PuppyListViewModel
@@ -35,7 +45,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyTheme {
-                MyApp()
+                Column {
+                    TopBar()
+                    MyApp { id ->
+                        startActivity(
+                            Intent(this@MainActivity, DetailActivity::class.java).apply {
+                                putExtra(INTENT_KEY_PUPPY_ID, id)
+                            }
+                        )
+                    }
+                }
             }
         }
     }
@@ -43,14 +62,35 @@ class MainActivity : AppCompatActivity() {
 
 // Start building your app here!
 @Composable
-fun MyApp() {
-    val puppyListviewModel: PuppyListViewModel = viewModel(
+fun MyApp(goDetail : ((Int) -> Unit)? = null) {
+    val puppyListViewModel: PuppyListViewModel = viewModel(
         factory = InjectorUtils.providePuppyListViewModelFactory(LocalContext.current)
     )
-    puppyListviewModel.getPuppies()
-    val puppyList = puppyListviewModel.puppies.observeAsState().value
+    val puppyList = puppyListViewModel.puppies.observeAsState().value
+
     Surface(color = MaterialTheme.colors.background) {
-        Text(text = puppyList.toString())
+        puppyList?.let{
+            PuppyList(
+                itemList = puppyList,
+                itemClick = goDetail
+            )
+        }
+    }
+}
+
+@Composable
+fun TopBar() {
+    Surface(elevation = 2.dp, color = MaterialTheme.colors.surface) {
+        Row(modifier = Modifier.height(55.dp).fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically) {
+            Image(
+                painter = painterResource(R.drawable.ic_dog_logo),
+                contentDescription = null,
+                modifier = Modifier.size(34.dp)
+            )
+            Text(text="Adopt puppy", style = MaterialTheme.typography.h1, fontSize = 20.sp)
+        }
     }
 }
 

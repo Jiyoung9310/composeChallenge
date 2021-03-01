@@ -11,6 +11,8 @@ data class Puppy (
     val species: String,
     val sex: String,
     val age: String,
+    val color: String,
+    val description: String,
     val imageUrl: String = ""
 ) {
     override fun toString() = name
