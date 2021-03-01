@@ -30,11 +30,13 @@ buildscript {
         espressoVersion = '3.3.0'
         truthVersion = '1.0.1'
         viewModelComposeVersion = '1.0.0-alpha02'
+        accompanistVersion = '0.6.0'
     }
 
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
 
     dependencies {

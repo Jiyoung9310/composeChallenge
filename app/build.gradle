@@ -92,8 +92,9 @@ dependencies {
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
 
-    // glide
-    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    // coil
+    implementation "dev.chrisbanes.accompanist:accompanist-insets:$rootProject.accompanistVersion"
+    implementation "dev.chrisbanes.accompanist:accompanist-coil:$rootProject.accompanistVersion"
 
     // gson
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
