@@ -32,6 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -39,6 +40,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.androiddevchallenge.data.Puppy
 import com.example.androiddevchallenge.ui.theme.Dimens
@@ -52,7 +54,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyTheme {
-                MyApp()
+                Column {
+                    TopBar()
+                    MyApp()
+                }
             }
         }
     }
@@ -73,6 +78,21 @@ fun MyApp() {
     }
 }
 
+@Composable
+fun TopBar() {
+    Surface(elevation = 2.dp, color = MaterialTheme.colors.surface) {
+        Row(modifier = Modifier.height(55.dp).fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically) {
+            Image(
+                painter = painterResource(R.drawable.ic_dog_logo),
+                contentDescription = null,
+                modifier = Modifier.size(34.dp)
+            )
+            Text(text="Adopt puppy", style = MaterialTheme.typography.h1, fontSize = 20.sp)
+        }
+    }
+}
 
 @Composable
 fun PuppyList(
