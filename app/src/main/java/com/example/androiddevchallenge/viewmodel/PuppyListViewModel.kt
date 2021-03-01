@@ -15,9 +15,9 @@ class PuppyListViewModel internal constructor(
     private val _puppies = MutableLiveData<List<Puppy>>()
     val puppies: LiveData<List<Puppy>> = _puppies
 
-    fun getPuppies() {
+    init {
         viewModelScope.launch {
-            repo.getPlants().collect {
+            repo.getPuppies().collect {
                 _puppies.value = it
             }
         }

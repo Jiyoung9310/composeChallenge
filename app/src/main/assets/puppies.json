@@ -3,28 +3,36 @@
     "name": "Pepper",
     "species": "Labrador Retriever",
     "sex": "male",
-    "age": "2 years",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg"
+    "age": "4 months",
+    "color" : "Gold",
+    "description" : "Very friendly, sweet, gets along with other dogs",
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Labrador_retriever_puppy_MZ7_0042.jpg"
   },
   {
     "name": "Ginger",
     "species": "Papillon",
     "sex": "female",
     "age": "5 months",
-    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/f/f7/RileyPapillon.JPG"
+    "color" : "Black and White",
+    "description" : "Gets along with other dogs and cats, good with children",
+    "imageUrl": "https://cdn.pixabay.com/photo/2014/02/25/11/24/papillon-274182_1280.jpg"
   },
   {
     "name": "Max",
     "species": "Pitbull Terrier",
     "sex": "male",
-    "age": "10 months",
+    "age": "4 years",
+    "color" : "Brown",
+    "description" : "Be honest and follow people well. Loves to walk.",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/American_Pitbull_001.jpg/2560px-American_Pitbull_001.jpg"
   },
   {
     "name": "Petal",
     "species": "Pug",
     "sex": "female",
-    "age": "3 years",
+    "age": "5 years",
+    "color" : "Black and Cream",
+    "description" : "She is a super smart amazing dog with so much love to give.",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Fawn_pug_2.5year-old.JPG"
   },
   {
@@ -32,6 +40,8 @@
     "species": "Poodle",
     "sex": "male",
     "age": "3 months",
+    "color" : "Chocolate",
+    "description" : "He's a very young puppy, so he needs an owner quickly. He likes people and has a lot of charm.",
     "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/4/46/%EB%AF%B8%EB%8B%88%ED%91%B8%EB%93%A4%EC%9D%98_%EB%AA%A8%EC%8A%B5.jpg"
   }
 ]
