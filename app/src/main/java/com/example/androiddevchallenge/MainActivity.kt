@@ -22,8 +22,13 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.androiddevchallenge.ui.theme.MyTheme
+import com.example.androiddevchallenge.util.InjectorUtils
+import com.example.androiddevchallenge.viewmodel.PuppyListViewModel
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,8 +44,13 @@ class MainActivity : AppCompatActivity() {
 // Start building your app here!
 @Composable
 fun MyApp() {
+    val puppyListviewModel: PuppyListViewModel = viewModel(
+        factory = InjectorUtils.providePuppyListViewModelFactory(LocalContext.current)
+    )
+    puppyListviewModel.getPuppies()
+    val puppyList = puppyListviewModel.puppies.observeAsState().value
     Surface(color = MaterialTheme.colors.background) {
-        Text(text = "Ready... Set... GO!")
+        Text(text = puppyList.toString())
     }
 }
 

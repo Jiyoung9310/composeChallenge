@@ -1,18 +1,18 @@
 package com.example.androiddevchallenge.data
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PuppyDao {
     @Query("SELECT * FROM puppies ORDER BY name")
-    fun getPuppies(): LiveData<List<Puppy>>
+    fun getPuppies(): Flow<List<Puppy>>
 
     @Query("SELECT * FROM puppies WHERE id = :puppyId")
-    fun getPuppy(puppyId: String): LiveData<Puppy>
+    fun getPuppy(puppyId: Int): Flow<Puppy>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(puppies: List<Puppy>)

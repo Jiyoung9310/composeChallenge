@@ -4,7 +4,7 @@ class PuppyRepository private constructor(private val puppyDao: PuppyDao) {
 
     fun getPlants() = puppyDao.getPuppies()
 
-    fun getPlant(puppyId: String) = puppyDao.getPuppy(puppyId)
+    fun getPlant(puppyId: Int) = puppyDao.getPuppy(puppyId)
 
     companion object {
 
