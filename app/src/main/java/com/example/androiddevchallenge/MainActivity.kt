@@ -20,7 +20,12 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -62,14 +67,14 @@ class MainActivity : AppCompatActivity() {
 
 // Start building your app here!
 @Composable
-fun MyApp(goDetail : ((Int) -> Unit)? = null) {
+fun MyApp(goDetail: ((Int) -> Unit)? = null) {
     val puppyListViewModel: PuppyListViewModel = viewModel(
         factory = InjectorUtils.providePuppyListViewModelFactory(LocalContext.current)
     )
     val puppyList = puppyListViewModel.puppies.observeAsState().value
 
     Surface(color = MaterialTheme.colors.background) {
-        puppyList?.let{
+        puppyList?.let {
             PuppyList(
                 itemList = puppyList,
                 itemClick = goDetail
@@ -81,15 +86,17 @@ fun MyApp(goDetail : ((Int) -> Unit)? = null) {
 @Composable
 fun TopBar() {
     Surface(elevation = 2.dp, color = MaterialTheme.colors.surface) {
-        Row(modifier = Modifier.height(55.dp).fillMaxWidth(),
+        Row(
+            modifier = Modifier.height(55.dp).fillMaxWidth(),
             horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically) {
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Image(
                 painter = painterResource(R.drawable.ic_dog_logo),
                 contentDescription = null,
                 modifier = Modifier.size(34.dp)
             )
-            Text(text="Adopt puppy", style = MaterialTheme.typography.h1, fontSize = 20.sp)
+            Text(text = "Adopt puppy", style = MaterialTheme.typography.h1, fontSize = 20.sp)
         }
     }
 }

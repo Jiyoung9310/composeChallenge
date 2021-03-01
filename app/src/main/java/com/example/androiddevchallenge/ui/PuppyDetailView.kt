@@ -1,9 +1,38 @@
+/*
+ * Copyright 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package com.example.androiddevchallenge.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Share
@@ -115,12 +144,13 @@ private fun PuppyInfo(
 }
 
 @Composable
-private fun PuppyNameAndAge(name: String, sex: String, age: String, color:String) {
+private fun PuppyNameAndAge(name: String, sex: String, age: String, color: String) {
     Column {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Text(text = name, fontWeight = FontWeight.Bold)
             Spacer(modifier = Modifier.padding(2.dp))
-            Image(painter = painterResource(if(sex == "male") R.drawable.ic_male else R.drawable.ic_female),
+            Image(
+                painter = painterResource(if (sex == "male") R.drawable.ic_male else R.drawable.ic_female),
                 contentDescription = sex,
                 modifier = Modifier.size(15.dp)
             )
@@ -156,7 +186,7 @@ private fun PuppyToolbar(
                     .wrapContentSize(Alignment.Center)
             )
             IconButton(
-                {  },
+                { },
                 Modifier.align(Alignment.CenterVertically)
             ) {
                 Icon(
