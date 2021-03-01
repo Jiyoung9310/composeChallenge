@@ -31,6 +31,8 @@ buildscript {
         truthVersion = '1.0.1'
         viewModelComposeVersion = '1.0.0-alpha02'
         accompanistVersion = '0.6.0'
+        activityComposeVersion = '1.3.0-alpha03'
+        constraintLayoutComposeVersion = '1.0.0-alpha03'
     }
 
     repositories {
